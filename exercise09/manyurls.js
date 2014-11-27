@@ -2,12 +2,14 @@ var http = require("http");
 
 
 function fetchurl(n) {
+    "use strict";
+
     if (n > process.argv.length) {
         return;
     }
 
     var url = process.argv[n],
-              collectedData;
+        collectedData;
 
     http.get(url, function (response) {
         collectedData = "";

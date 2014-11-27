@@ -3,11 +3,14 @@ var http = require('http'),
     server;
 
 server = http.createServer(function (req, res) {
+    "use strict";
+
     var query = url.parse(req.url, true),
+        date,
         response;
 
     if (query.pathname === "/api/parsetime") {
-        var date = new Date(query.query.iso);
+        date = new Date(query.query.iso);
 
         response = {
             "hour": date.getHours(),

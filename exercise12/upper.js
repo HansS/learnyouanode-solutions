@@ -4,6 +4,8 @@ var map = require('through2-map'),
 
 
 server = http.createServer(function (req, res) {
+    "use strict";
+
     req.pipe(map(function (chunk) { return chunk.toString().toUpperCase(); })).pipe(res);
 });
 
